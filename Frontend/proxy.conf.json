@@ -1,0 +1,32 @@
+{
+  "/api":{
+      "target" : "https://localhost:5005",
+      "secure" : false,
+      "changeOrigin" : true
+  },
+
+  "/api/first-service": {
+      "target": "http://localhost:3001",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+      "^/api/first-service": ""
+  }
+  },
+  "/api/second-service": {
+      "target": "http://localhost:4001",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+      "^/api/second-service": ""
+  }
+  },
+  "/api/third-service": {
+      "target": "http://localhost:5001",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+      "^/api/third-service": ""
+  }
+  }
+}
