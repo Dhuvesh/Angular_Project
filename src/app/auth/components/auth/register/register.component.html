@@ -4,37 +4,31 @@
   <form class="form" [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" formControlName="name" placeholder="Name" />
-      @if (registerForm.get('name')?.valid && registerForm.get('name')?.touched)
-      {
-        <div class="text-danger">Name is required</div>
+      <input type="text" name="name" formControlName="name" required />
+      @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched){
+        <div>Name is required</div>
       }
     </div>
     <div class="form-group">
-      <label for="email">Email Address</label>
-      <input type="email" formControlName="email" placeholder="Email Address" />
-      @if (registerForm.get('email')?.valid && registerForm.get('email')?.touched)
-      {
-        <small class="text-danger">Email is required</small>
+      <label for="email">Email</label>
+      <input type="email" name="email" formControlName="email" required />
+      @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched){
+        <div>Email is required</div>
       }
-
     </div>
     <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" name="password" />
-      @if (registerForm.get('password')?.valid && registerForm.get('password')?.touched)
-      {
-        <div class="text-danger">Password is required</div>
-      }
-
+        <label for="password">Enter password</label>
+        <input type="password" name="password" formControlName="password" />
+        @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched){
+          <div>Password is required</div>
+        }
     </div>
     <div class="form-group">
-        <label for="confirmpassword">Confirm Password</label>
-        <input type="password" name="confirmpassword" />
-      @if (registerForm.get('confirmpassword')?.valid && registerForm.get('confirmpassword')?.touched)
-      {
-        <div class="text-danger">Password is required</div>
-      }
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" name="confirmPassword" formControlName="confirmPassword" />
+        @if (registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched){
+          <div>Confirm password is required</div>
+        }
     </div>
     <input type="submit"  value="Register" />
   </form>
