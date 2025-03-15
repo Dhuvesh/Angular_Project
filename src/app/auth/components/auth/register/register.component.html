@@ -22,12 +22,19 @@
     <div class="form-group">
         <label for="password">Password</label>
         <input type="password" name="password" />
-      
+      @if (registerForm.get('password')?.valid && registerForm.get('password')?.touched)
+      {
+        <div class="text-danger">Password is required</div>
+      }
 
     </div>
     <div class="form-group">
         <label for="confirmpassword">Confirm Password</label>
         <input type="password" name="confirmpassword" />
+      @if (registerForm.get('confirmpassword')?.valid && registerForm.get('confirmpassword')?.touched)
+      {
+        <div class="text-danger">Password is required</div>
+      }
     </div>
     <input type="submit"  value="Register" />
   </form>
