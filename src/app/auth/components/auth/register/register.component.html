@@ -1,0 +1,25 @@
+<section class="container">
+  <h1 class="large text-primary">Sign Up</h1>
+  <p class="lead"><i class="fas fa-user"></i> Create Your Account</p>
+  <form class="form" [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" name="name" />
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" name="email" required />
+
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" />
+    </div>
+    <div class="form-group">
+        <label for="confirmpassword">Confirm Password</label>
+        <input type="password" name="confirmpassword" />
+    </div>
+    <input type="submit"  value="Register" />
+  </form>
+  <p class="my-1">Already have an account? <a href="login.html">Sign In</a></p>
+</section>
