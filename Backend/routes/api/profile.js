@@ -9,10 +9,10 @@ const router = express.Router();
 
 // PostgreSQL pool
 const pool = new Pool({
-  user: "root",
+  user: "postgres",
   host: "localhost",
-  database: "my_database",
-  password: "root",
+  database: "fsd",
+  password: "Salian3210",
   port: 5432,
 });
 

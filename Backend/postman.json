@@ -1,0 +1,124 @@
+{
+  "info": {
+    "_postman_id": "74d45afb-a367-4bae-a59e-a77959e41c80",
+    "name": "DevConnector API",
+    "description": "This collection contains endpoints for the DevConnector API for user authentication and profile management.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "3829863"
+  },
+  "item": [
+    {
+      "name": "User Registration",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"johndoe@example.com\",\n    \"password\": \"password123\",\n    \"password2\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "localhost:5005/api/users",
+          "host": ["localhost"],
+          "port": "5005",
+          "path": ["api", "users"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "User Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"johndoe@example.com\",\n    \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "localhost:5005/api/auth",
+          "host": ["localhost"],
+          "port": "5005",
+          "path": ["api", "auth"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Current User Profile",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-auth-token",
+            "value": "{{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "localhost:5005/api/profile",
+          "host": ["localhost"],
+          "port": "5005",
+          "path": ["api", "profile"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create or Update User Profile",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-auth-token",
+            "value": "{{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"status\": \"Developer\",\n    \"company\": \"TechCorp\",\n    \"location\": \"New York, NY\",\n    \"skills\": [\n        \"JavaScript\",\n        \"Node.js\",\n        \"React\"\n    ],\n    \"bio\": \"I am a full-stack developer looking for opportunities.\"\n}"
+        },
+        "url": {
+          "raw": "localhost:5005/api/profile",
+          "host": ["localhost"],
+          "port": "5005",
+          "path": ["api", "profile"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Profiles",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:5005/api/profiles",
+          "host": ["localhost"],
+          "port": "5005",
+          "path": ["api", "profiles"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Profile by User ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:5005/api/profile/user/:user_id",
+          "host": ["localhost"],
+          "port": "5005",
+          "path": ["api", "profile", "user", ":user_id"],
+          "variable": [
+            {
+              "key": "user_id"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
