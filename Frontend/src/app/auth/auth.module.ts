@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { LoginComponent } from './components/auth/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -19,6 +20,6 @@ import { provideHttpClient } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [provideHttpClient()]
+  providers: [provideHttpClient(),AuthService]
 })
 export class AuthModule { }

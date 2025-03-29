@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent {
   registerForm: FormGroup;
-  constructor(private formBuilder : FormBuilder){
+  constructor(private formBuilder : FormBuilder, private authServices : AuthService){
     this.registerForm = this.formBuilder.group({
       name : ['',[Validators.required,Validators.minLength(4)]],
       email : ['',[Validators.required,Validators.email]],
@@ -21,7 +22,10 @@ export class RegisterComponent {
   registerSubmit(){
     // console.log("Submitted form");
     if(this.registerForm.valid){
-      console.log('Success' + JSON.stringify(this.registerForm.value))
+      console.log('Success' + JSON.stringify(this.registerForm.value));
+      this.authServices.registerUser(this.registerForm.value).subscribe((res)=>{
+        console.log(res); 
+      });
       alert("Form submitted successfully")
     }else{
       console.log(this.registerForm.errors);
